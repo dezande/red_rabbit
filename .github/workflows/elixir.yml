@@ -19,7 +19,7 @@ jobs:
 
     name: Build and test
     runs-on: ubuntu-latest
-    service:
+    services:
       postgres:
         image: postgres
         env:
