@@ -6,8 +6,8 @@ import Config
 # to provide built-in test partitioning in CI environment.
 # Run `mix help test` for more information.
 config :red_rabbit, RedRabbit.Repo,
-  username: "vincentcorniere",
-  password: "",
+  username: System.get_env("POSTGRES_USERNAME", "vincentcorniere"),
+  password: System.get_env("POSTGRES_PASSWORD", ""),
   hostname: "localhost",
   database: "red_rabbit_test#{System.get_env("MIX_TEST_PARTITION")}",
   pool: Ecto.Adapters.SQL.Sandbox,
